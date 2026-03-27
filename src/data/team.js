@@ -1,15 +1,23 @@
 // src/data/team.js
 
-export const ceo = {
+import { mapArtistImageUrl } from '../utils/imagekit';
+
+const mapMemberImages = (member) => ({
+  ...member,
+  image: mapArtistImageUrl(member.image),
+  imageList: member.imageList ? member.imageList.map(mapArtistImageUrl) : member.imageList
+});
+
+const rawCeo = {
   id: 'jinsoo-rhu',
   name: 'Jinsoo Rhu',
   nameKo: '유진수',
   title: 'CEO',
   titleKo: '대표',
-  image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769523412/CEO2_k1jhqe.jpg',
+  image: 'https://ik.imagekit.io/2cas695rs/Artist/CEO2.jpg?updatedAt=1774575083520',
   imageList: [
-    'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769523412/CEO2_k1jhqe.jpg',
-    'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769523276/CEO_vt6y6z.jpg'
+    'https://ik.imagekit.io/2cas695rs/Artist/CEO2.jpg?updatedAt=1774575083520',
+    'https://ik.imagekit.io/2cas695rs/Artist/CEO.jpg?updatedAt=1774575084229'
   ],
   bio: {
     en: 'Founder & CEO of Gleedoc. Associate Professor of Surgery at Samsung Medical Center and Sungkyunwon University School of Medicine. Medical illustrator and webtoon author with passion for medical education and visual storytelling.',
@@ -51,14 +59,16 @@ export const ceo = {
   projectIds: [1, 2, 3] // 참여한 프로젝트 IDs
 };
 
-export const medicalIllustrators = [
+export const ceo = mapMemberImages(rawCeo);
+
+const rawMedicalIllustrators = [
   {
     id: 'haeun-kim',
     name: 'Haeun Kim',
     nameKo: '김하은',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769682082/profile_haeun.jpg_vmrv0f.png',
+    image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_haeun.jpg.png?updatedAt=1774575084215',
     email: 'haeunhannah1230@gmail.com',
     bio: {
       en: 'Medical Illustrator\nProviding visualization solutions that elevate the value of research. I specialize in translating complex medical information into clear visual language.',
@@ -86,7 +96,7 @@ export const medicalIllustrators = [
     nameKo: '임소영',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-      image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769527774/profile_soyoung_mywmf2.png',
+      image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_soyoung.png?updatedAt=1774575084225',
     email: 'syl942511@gmail.com',
     bio: {
       en: 'Majored in design at university and studied Biomedical Art in graduate school. I aim to deliver complex medical information in an accurate and easily understandable visual language.',
@@ -117,7 +127,7 @@ export const medicalIllustrators = [
     nameKo: '최정인',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769521293/profile_jeongin_l5xlol.png',
+    image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_jeongin.png?updatedAt=1774575102268',
     email: 'jeongin9248@gmail.com',
     website: '', // 포트폴리오 링크는 추후 업데이트 예정
     bio: {
@@ -149,7 +159,7 @@ export const medicalIllustrators = [
     nameKo: '홍혜정',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-      image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769569339/profile_hyejeong2_odoq4p.png',
+      image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_hyejeong2.png',
     email: 'hedgehogs@kakao.com',
     bio: {
       en: 'I majored in Psychology and completed a Master\'s degree in Biomedical Art. I am interested in structuring complex information logically and visualizing it in an accessible way, with a particular focus on neuroscience and biopsychology.',
@@ -173,7 +183,9 @@ export const medicalIllustrators = [
   }
 ];
 
-export const alumniIllustrators = [
+export const medicalIllustrators = rawMedicalIllustrators.map(mapMemberImages);
+
+const rawAlumniIllustrators = [
     {
     id: 'jeah-kim',
     name: 'Jeah Kim',
@@ -191,7 +203,7 @@ export const alumniIllustrators = [
     nameKo: '김미승',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769649485/profile_miseung_v95qmq.png',
+    image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_miseung.png?updatedAt=1774575083801',
     website: 'https://miseung.artstation.com/',
     experience: ['Infographic Design', 'Medical Illustration', 'Surgical Illustration'],
     projectIds: []
@@ -202,9 +214,11 @@ export const alumniIllustrators = [
     nameKo: '한철희',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769773567/profile_cheolheehan_xn1asj.jpg',
+    image: 'https://ik.imagekit.io/2cas695rs/Artist/profile_cheolheehan.jpg?updatedAt=1774575084109',
     website: 'https://teammedicalpolygon.com/',
     experience: ['Medical Illustration'],
     projectIds: []
   }
 ];
+
+export const alumniIllustrators = rawAlumniIllustrators.map(mapMemberImages);

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { ceo, medicalIllustrators as artists, alumniIllustrators } from '../data/team';
+import { buildImageKitUrl, mapArtworkImageUrl } from '../utils/imagekit';
 
 function WatermarkedImage({ src, alt, watermarkText }) {
   const canvasRef = useRef(null);
@@ -83,20 +84,20 @@ export const projects = [
                                   tags: ["figure", "surgical-illustration"],
                                   artists: ["cheolhee-han"],
                                   year: "2023.07",
-                                  image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                  image: "https://ik.imagekit.io/2cas695rs/Artworks/1_preOP.jpg",
                                   images: [
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/2_localization_h81uhv.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/3_injection_qmj7zd.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683874/4_incision_ztxfev.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683875/5_retracting_draxiy.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/6_excisionLine_lyrzfx.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/7_tumorExcision_vgurf5.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/8_ADM_xpfhyv.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/9_suture1_dofrrn.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/10_suture2_ce5liq.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683993/11_lateralview_sample4_ojhh4x.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769684006/SLN_sample7_final_vlwds1.jpg"
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/1_preOP.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/2_localization.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/3_injection.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/4_incision.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/5_retracting.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/6_excisionLine.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/7_tumorExcision.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/8_ADM.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/9_suture1.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/10_suture2.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/11_lateralview_sample4.jpg",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/SLN_sample7_final.jpg"
                                   ],
                                   video: null,
                                   descKo: "서영진 교수님 의뢰(가톨릭대학교 성빈센트 유방외과), SLN, BCS figure.",
@@ -113,9 +114,9 @@ export const projects = [
                                 tags: ["logo-design"],
                                 artists: ["jeah-kim"],
                                 year: "2023.05",
-                                image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png",
+                                image: "https://ik.imagekit.io/2cas695rs/Artworks/50.png?updatedAt=1774574986581",
                                 images: [
-                                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png"
+                                  "https://ik.imagekit.io/2cas695rs/Artworks/50.png?updatedAt=1774574986581"
                                 ],
                                 video: null,
                                 descKo: "대한대동맥연구회 로고디자인.",
@@ -132,11 +133,11 @@ export const projects = [
                                   tags: ["surgical-illustration", "figure"],
                                   artists: ["jinsoo-rhu"],
                                   year: "2020.01",
-                                  image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-1_gkwcvi.jpg",
+                                  image: "https://ik.imagekit.io/2cas695rs/Artworks/136-1.jpg?updatedAt=1774574987012",
                                   images: [
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-1_gkwcvi.jpg",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-2_nqvszm.png",
-                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536884/136-3_fz6bui.png"
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/136-1.jpg?updatedAt=1774574987012",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/136-2.PNG?updatedAt=1774574986408",
+                                    "https://ik.imagekit.io/2cas695rs/Artworks/136-3.PNG"
                                   ],
                                   video: null,
                                   descKo: "TICGLE 수술 일러스트 및 Figure.",
@@ -153,10 +154,10 @@ export const projects = [
                                 tags: ["medical-illustration"],
                                 artists: ["jinsoo-rhu"],
                                 year: "2020.01",
-                                image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536684/134-1_b2aiey.jpg",
+                                image: "https://ik.imagekit.io/2cas695rs/Artworks/134-1.jpg?updatedAt=1774574987284",
                                 images: [
-                                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536684/134-1_b2aiey.jpg",
-                                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536682/134-2_ccfdcn.png"
+                                  "https://ik.imagekit.io/2cas695rs/Artworks/134-1.jpg?updatedAt=1774574987284",
+                                  "https://ik.imagekit.io/2cas695rs/Artworks/134-2.PNG?updatedAt=1774574986310"
                                 ],
                                 video: null,
                                 descKo: "서울순천향 신장내과 의뢰, Nephron exosome 논문 Figure.",
@@ -173,9 +174,9 @@ export const projects = [
                               tags: ["medical-illustration"],
                               artists: ["jinsoo-rhu"],
                               year: "2020.01",
-                              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536492/133_wpgm7c.jpg",
+                              image: "https://ik.imagekit.io/2cas695rs/Artworks/133.jpg?updatedAt=1774574986467",
                               images: [
-                                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536492/133_wpgm7c.jpg"
+                                "https://ik.imagekit.io/2cas695rs/Artworks/133_wpgm7c.jpg?updatedAt=1774574986467"
                               ],
                               video: null,
                               descKo: "한양대 신경외과 의뢰, Arachnoid trabeculae 메디컬 일러스트.",
@@ -192,10 +193,10 @@ export const projects = [
                             tags: ["surgical-illustration"],
                             artists: ["jinsoo-rhu"],
                             year: "2020.06",
-                            image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-1_uh6e20.jpg",
+                            image: "https://ik.imagekit.io/2cas695rs/Artworks/106-1.jpg?updatedAt=1774574986939",
                             images: [
-                              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-1_uh6e20.jpg",
-                              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-2_qtesvz.jpg"
+                              "https://ik.imagekit.io/2cas695rs/Artworks/106-1.jpg?updatedAt=1774574986939",
+                              "https://ik.imagekit.io/2cas695rs/Artworks/106-2.jpg?updatedAt=1774574987085"
                             ],
                             video: null,
                             descKo: "한양대 의뢰, HBP-Ampullectomy, PJ anastomosis 수술 일러스트.",
@@ -212,11 +213,11 @@ export const projects = [
                           tags: ["surgical-illustration", "figure"],
                           artists: ["miseung-kim"],
                           year: "2021.09",
-                          image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-1_ujdkv9.jpg",
+                          image: "https://ik.imagekit.io/2cas695rs/Artworks/9-1.jpg?updatedAt=1774574986579",
                           images: [
-                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-1_ujdkv9.jpg",
-                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-2_cmxiad.jpg",
-                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-3_tksc0w.jpg"
+                            "https://ik.imagekit.io/2cas695rs/Artworks/9-1.jpg?updatedAt=1774574986579",
+                            "https://ik.imagekit.io/2cas695rs/Artworks/9-2.jpg?updatedAt=1774574986602",
+                            "https://ik.imagekit.io/2cas695rs/Artworks/9-3.jpg?updatedAt=1774574986313"
                           ],
                           video: null,
                           descKo: "서울대 외과 의뢰, 논문용 수술 일러스트. 논문명: Postoperative morbidity and quality of life between totally laparoscopic total gastrectomy and laparoscopy-assisted total gastrectomy: A propensity-score matched analysis",
@@ -235,9 +236,9 @@ export const projects = [
                         tags: ["surgical-illustration"],
                         artists: ["miseung-kim"],
                         year: "2021.03",
-                        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184227/10_ihalml.jpg",
+                        image: "https://ik.imagekit.io/2cas695rs/Artworks/10.jpg?updatedAt=1774574987223",
                         images: [
-                          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184227/10_ihalml.jpg"
+                          "https://ik.imagekit.io/2cas695rs/Artworks/10.jpg?updatedAt=1774574987223"
                         ],
                         video: null,
                         descKo: "소아 심장기형 수술 일러스트.",
@@ -254,9 +255,9 @@ export const projects = [
                         tags: ["medical-illustration"],
                         artists: ["miseung-kim"],
                         year: "2020.08",
-                        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769535643/20_r3ty2j.jpg",
+                        image: "https://ik.imagekit.io/2cas695rs/Artworks/20.jpg?updatedAt=1774574986988",
                         images: [
-                          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769535643/20_r3ty2j.jpg"
+                          "https://ik.imagekit.io/2cas695rs/Artworks/20.jpg?updatedAt=1774574986988"
                         ],
                         video: null,
                         descKo: "대동맥수술 메디컬 일러스트.",
@@ -273,9 +274,9 @@ export const projects = [
                       tags: ["medical-illustration"],
                       artists: ["soyoung-lim"],
                       year: "2023.03",
-                      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/151_vt4ym3.jpg",
+                      image: "https://ik.imagekit.io/2cas695rs/Artworks/151.jpg?updatedAt=1774574986195",
                       images: [
-                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/151_vt4ym3.jpg"
+                        "https://ik.imagekit.io/2cas695rs/Artworks/151.jpg?updatedAt=1774574986195"
                       ],
                       video: null,
                       descKo: "갑상선 결절(C6 축면) 메디컬 일러스트.",
@@ -292,9 +293,9 @@ export const projects = [
                     tags: ["book-cover"],
                     artists: ["jinsoo-rhu", "soyoung-lim"],
                     year: "2022.07",
-                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185000/177_l2ih98.jpg",
+                    image: "https://ik.imagekit.io/2cas695rs/Artworks/177.jpg?updatedAt=1774574986781",
                     images: [
-                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185000/177_l2ih98.jpg"
+                      "https://ik.imagekit.io/2cas695rs/Artworks/177.jpg?updatedAt=1774574986781"
                     ],
                     video: null,
                     descKo: "닥터 단감의 간이식만화 표지 일러스트",
@@ -311,11 +312,11 @@ export const projects = [
                     tags: ["logo-design"],
                     artists: ["soyoung-lim"],
                     year: "2022.08",
-                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-1_i4vdny.jpg",
+                    image: "https://ik.imagekit.io/2cas695rs/Artworks/178-1.jpg?updatedAt=1774574986266",
                     images: [
-                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-1_i4vdny.jpg",
-                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-2_kfmyed.jpg",
-                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-3_uhcccj.jpg"
+                      "https://ik.imagekit.io/2cas695rs/Artworks/178-1.jpg?updatedAt=1774574986266",
+                      "https://ik.imagekit.io/2cas695rs/Artworks/178-2.jpg?updatedAt=1774574986397",
+                      "https://ik.imagekit.io/2cas695rs/Artworks/178-3.jpg?updatedAt=1774574986511"
                     ],
                     video: null,
                     descKo: "한양대를 상징하는 사자, 의학을 상징하는 아스클레피오스의 지팡이(rod of Asclepius), 그리고 외과를 상징하는 메스를 조합하여 디자인한 한양대학교 외과 로고입니다.",
@@ -332,9 +333,9 @@ export const projects = [
                   tags: ["figure"],
                   artists: ["jeongin-choi"],
                   year: "2023.10",
-                  image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534176/182_km0ca5.jpg",
+                  image: "https://ik.imagekit.io/2cas695rs/Artworks/182.jpeg?updatedAt=1774574986907",
                   images: [
-                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534176/182_km0ca5.jpg"
+                    "https://ik.imagekit.io/2cas695rs/Artworks/182.jpeg?updatedAt=1774574986907"
                   ],
                   video: null,
                   descKo: "심장초음파검사를 시행하게 되면 visual analysis (qualitatative analysis)와 manual measurement를 통한 평가 (quantitative analysis)를 모두 시행하여햐하는데 초음파 검사 한건을 하기 위해서는 이 두 종류의 평가를 십여변, 많게는 수십번 반복해야한다는 것을 강조하기 위함을 화살 표를 추가하여 보여준다.",
@@ -351,11 +352,11 @@ export const projects = [
                 tags: ["figure", "graphical-abstract"],
                 artists: ["jeongin-choi"],
                 year: "2023.10",
-                image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532954/184-1_jzwpih.jpg",
+                image: "https://ik.imagekit.io/2cas695rs/Artworks/184-1.jpeg?updatedAt=1774574986585",
                 images: [
-                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532954/184-1_jzwpih.jpg",
-                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532956/184-2_uvjngq.jpg",
-                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532956/184-3_jotvi5.jpg"
+                  "https://ik.imagekit.io/2cas695rs/Artworks/184-1.jpeg?updatedAt=1774574986585",
+                  "https://ik.imagekit.io/2cas695rs/Artworks/184-2.jpeg?updatedAt=1774574986804",
+                  "https://ik.imagekit.io/2cas695rs/Artworks/184-3.jpeg?updatedAt=1774574986818"
                 ],
                 video: null,
                 descKo: "저나트륨 고칼륨 식사가 고혈압과 심혈관계 질환에 미치는 영향에 대한 일러스트.",
@@ -372,10 +373,10 @@ export const projects = [
               tags: ["surgical-illustration", "figure", "journal-cover"],
               artists: ["jinsoo-rhu", "soyoung-lim"],
               year: "2022.08",
-              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-1_qz6g7i.jpg",
+              image: "https://ik.imagekit.io/2cas695rs/Artworks/166-1.jpg?updatedAt=1774574988269",
               images: [
-                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-1_qz6g7i.jpg",
-                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-2_lofpqc.jpg"
+                "https://ik.imagekit.io/2cas695rs/Artworks/166-1.jpg?updatedAt=1774574988269",
+                "https://ik.imagekit.io/2cas695rs/Artworks/166-2.jpg?updatedAt=1774574987129"
               ],
               video: null,
               descKo: "Liver Transplantation 2022 Journal Cover",
@@ -392,9 +393,9 @@ export const projects = [
               tags: ["figure"],
               artists: ["hyejeong-hong"],
               year: "2024.02",
-              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532505/191_enfhre.jpg",
+              image: "https://ik.imagekit.io/2cas695rs/Artworks/191.jpg?updatedAt=1774574986305",
               images: [
-                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532505/191_enfhre.jpg"
+                "https://ik.imagekit.io/2cas695rs/Artworks/191.jpg?updatedAt=1774574986305"
               ],
               video: null,
               descKo: "갑상선 내부에 침윤성 병변이 나타난 양상(좌: 양성, 우: 악성)을 비교한 Figure 일러스트. 좌측은 benign하게 thyroid 내부에 infiltration lesion이 보이고, 우측은 malignancy스럽게(무시무시하게) infiltration lesion이 표현됨.",
@@ -411,9 +412,9 @@ export const projects = [
           //   tags: ["surgical-illustration"],
           //   artists: ["haeun-kim"],
           //   year: "2025.03",
-          //   image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png",
+          //   image: "https://ik.imagekit.io/2cas695rs/Artworks/194.png?updatedAt=1774574986995",
           //   images: [
-          //     "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png"
+          //     "https://ik.imagekit.io/2cas695rs/Artworks/194.png?updatedAt=1774574986995"
           //   ],
           //   video: null,
           //   descKo: "십이지장 폐쇄 위치에 따른 십이지장 문합술 방법에 대해 2D 일러스트로 표현하였다.",
@@ -430,9 +431,9 @@ export const projects = [
           tags: ["surgical-illustration"],
           artists: ["haeun-kim"],
           year: "2025.08",
-          image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769531645/195_xvbg3k.png",
+          image: "https://ik.imagekit.io/2cas695rs/Artworks/195.png?updatedAt=1774574987860",
           images: [
-            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769531645/195_xvbg3k.png"
+            "https://ik.imagekit.io/2cas695rs/Artworks/195.png?updatedAt=1774574987860"
           ],
           video: null,
           descKo: "귀 뒤쪽으로 접근해서 Temporalis muscle 의 fascia 를 떼는 그림이다. 가장 superficial 하게 superficial temporalis fascia 가 있고, 그 아래에 deep temporalis fascia 가 있고, 마지막 층에 temporalis muscle 이 있는 구조적 특징을 구분하기 쉽게 표현한 2D 일러스트이다.",
@@ -449,9 +450,9 @@ export const projects = [
         tags: ["surgical-illustration"],
         artists: ["jeongin-choi"],
         year: "2023.05",
-        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530897/186_izdtqk.jpg",
+        image: "https://ik.imagekit.io/2cas695rs/Artworks/186.jpeg?updatedAt=1774574986285",
         images: [
-          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530897/186_izdtqk.jpg"
+          "https://ik.imagekit.io/2cas695rs/Artworks/186_izdtqk.jpg?updatedAt=1774574986285"
         ],
         video: null,
         descEn: "An illustration showing the incision for heart surgery and the scope being inserted.",
@@ -468,11 +469,11 @@ export const projects = [
       tags: ["surgical-illustration"],
       artists: ["jinsoo-rhu"],
       year: "2020.01",
-      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-1_ydbwvw.png",
+      image: "https://ik.imagekit.io/2cas695rs/Artworks/113-1.PNG?updatedAt=1774574986527",
       images: [
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-1_ydbwvw.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-2_mzug9p.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185301/113-3_sjxdr8.png"
+        "https://ik.imagekit.io/2cas695rs/Artworks/113-1.PNG?updatedAt=1774574986527",
+        "https://ik.imagekit.io/2cas695rs/Artworks/113-2.PNG?updatedAt=1774574986429",
+        "https://ik.imagekit.io/2cas695rs/Artworks/113-3.PNG?updatedAt=1774574986186"
       ],
       video: null,
       descEn: "Surgical illustration of rectal prolapse for Seoul Songdo Hospital.",
@@ -490,11 +491,11 @@ export const projects = [
       tags: ["figure"],
       artists: ["jinsoo-rhu"],
       year: "2020.01",
-      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530053/123-1_ap34h0.png",
+      image: "https://ik.imagekit.io/2cas695rs/Artworks/123-1.PNG?updatedAt=1774574986719",
       images: [
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530053/123-1_ap34h0.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530051/123-2_khqgq5.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530050/123-3_mc3q8q.png"
+        "https://ik.imagekit.io/2cas695rs/Artworks/123-1.PNG?updatedAt=1774574986719",
+        "https://ik.imagekit.io/2cas695rs/Artworks/123-2.PNG?updatedAt=1774574986425",
+        "https://ik.imagekit.io/2cas695rs/Artworks/123-3.PNG?updatedAt=1774574986440"
       ],
       video: null,
       descEn: "Figure illustration for Samsung Medical Center.",
@@ -511,11 +512,11 @@ export const projects = [
       tags: ["surgical-illustration", "figure"],
       artists: ["jinsoo-rhu"],
       year: "2020.01",
-      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-1_gwo12b.png",
+      image: "https://ik.imagekit.io/2cas695rs/Artworks/125-1.PNG?updatedAt=1774574986244",
       images: [
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-1_gwo12b.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185615/125-2_n42joc.png",
-        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-3_z6amxg.png"
+        "https://ik.imagekit.io/2cas695rs/Artworks/125-1.PNG?updatedAt=1774574986244",
+        "https://ik.imagekit.io/2cas695rs/Artworks/125-2.PNG?updatedAt=1774574986389",
+        "https://ik.imagekit.io/2cas695rs/Artworks/125-3.PNG?updatedAt=1774574986535"
       ],
       video: null,
       descEn: "Surgical illustration of mesorectum for Kyungpook National University.",
@@ -532,9 +533,9 @@ export const projects = [
     tags: ["medical-illustration", "infographic"],
     artists: ["miseung-kim"],
     year: "2020.02",
-    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769526582/12_hqurzd.jpg",
+    image: "https://ik.imagekit.io/2cas695rs/Artworks/12.jpg?updatedAt=1774574987091",
     images: [
-      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769526582/12_hqurzd.jpg"
+      "https://ik.imagekit.io/2cas695rs/Artworks/12.jpg?updatedAt=1774574987091"
     ],
     video: null,
     descEn: "Pediatric allergy reaction illustration for the Pediatric Society.",
@@ -551,9 +552,9 @@ export const projects = [
      tags: ["figure", "flowchart", "graphical-abstract"],
      artists: ["soyoung-lim"],
      year: "2022.10",
-     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769524181/155_gwlo4b.jpg",
+     image: "https://ik.imagekit.io/2cas695rs/Artworks/155.jpg",
      images: [
-       "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769524181/155_gwlo4b.jpg"
+       "https://ik.imagekit.io/2cas695rs/Artworks/155.jpg"
      ],
      video: null,
      descEn: "work period: Oct 31 – Dec 16 (about 1.5 months).",
@@ -570,9 +571,9 @@ export const projects = [
      tags: ["surgical-illustration", "figure"],
      artists: ["jeongin-choi"],
      year: "2024.08",
-     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770180873/181_hqpo8h.jpg",
+     image: "https://ik.imagekit.io/2cas695rs/Artworks/181.jpg?updatedAt=1774574986386",
      images: [
-       "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770180873/181_hqpo8h.jpg"
+       "https://ik.imagekit.io/2cas695rs/Artworks/181.jpg?updatedAt=1774574986386"
      ],
      video: null,
      descKo: "1. 골절 형태의 일러스트\n2. 포털을 통한 봉합 앵커 삽입 일러스트\n3. 봉합 앵커를 이용한 최종 고정 일러스트",
@@ -590,9 +591,18 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
   const [activeArtist, setActiveArtist] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
 
+  const normalizedProjects = useMemo(
+    () => projects.map((project) => ({
+      ...project,
+      image: mapArtworkImageUrl(project.image),
+      images: project.images ? project.images.map(mapArtworkImageUrl) : project.images
+    })),
+    []
+  );
+
   // 이미지 해상도 최적화 함수
   const getOptimizedImageUrl = (url, width = 1200) => {
-    if (!url || !url.includes('cloudinary.com')) return url;
+    if (!url) return url;
     
     // 모바일/데스크톱 구분
     const isMobile = window.innerWidth < 768;
@@ -610,8 +620,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
       optimizedWidth = Math.ceil(width * dpr);
     }
     
-    // Cloudinary 최적화: 더 적극적인 압축
-    return url.replace('/upload/', `/upload/q_85,f_auto,w_${optimizedWidth}/`);
+    return buildImageKitUrl(url, { width: optimizedWidth, quality: 80, format: 'webp' });
   };
 
   // 모달에서 키보드 좌우 화살표로 이미지 넘기기
@@ -694,8 +703,8 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
     return arr;
   }
   const filteredByTag = activeTag === 'all'
-    ? shuffle(projects)
-    : projects.filter((p) => p.tags.includes(activeTag));
+    ? shuffle(normalizedProjects)
+    : normalizedProjects.filter((p) => p.tags.includes(activeTag));
 
   const alumniIds = useMemo(() => alumniIllustrators.map((a) => a.id), []);
 
@@ -726,7 +735,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {['all', ...Array.from(new Set(projects.flatMap((p) => p.tags)))].map((tag) => {
+            {['all', ...Array.from(new Set(normalizedProjects.flatMap((p) => p.tags)))].map((tag) => {
               // dash(-)를 띄어쓰기로, 각 단어 첫 글자 대문자로 변환
               const formatTag = (str) => str === 'all'
                 ? (isKo ? '전체' : 'All')
@@ -803,11 +812,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 rounded-sm mb-6">
                 <img
-                  src={
-                    project.image.includes('cloudinary.com')
-                      ? project.image.replace('/upload/', '/upload/q_auto,f_auto,w_600,h_450,c_limit/')
-                      : project.image
-                  }
+                  src={getOptimizedImageUrl(project.image, 600)}
                   alt={isKo ? project.titleKo : project.title}
                   className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 bg-white"
                   loading="lazy"

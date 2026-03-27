@@ -1,85 +1,92 @@
 // src/data/clients.js
 
-export const clients = [
+import { mapClientImageUrl } from '../utils/imagekit';
+
+const rawClients = [
     {
       id: 'yongin-severance',
       name: 'Yongin Severance Hospital',
       nameKo: '용인세브란스병원',
-      logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769531228/yongin_severance_hospital_hrpnnm.png'
+      logo: 'https://ik.imagekit.io/2cas695rs/Clients/yongin_severance_hospital.png?updatedAt=1774575058006'
     },
   {
     id: 'korean-pediatric-society',
     name: 'The Korean Pediatric Society',
     nameKo: '대한소아청소년과학회',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522716/korean-pediatric-association_xytyz7.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/korean-pediatric-association.png?updatedAt=1774575015390'
   },
   {
     id: 'pnuh',
     name: 'Pusan National University Hospital',
     nameKo: '부산대학교병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522718/pnuh_mth7a6.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/pnuh.png?updatedAt=1774575015431'
   },
   {
     id: 'asan-medical-center',
     name: 'Asan Medical Center',
     nameKo: '서울아산병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522719/asan-medical-center_enm6j9.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/asan-medical-center.png?updatedAt=1774575015120'
   },
   {
     id: 'chungang-university-hospital',
     name: 'Chung-Ang University Hospital',
     nameKo: '중앙대학교병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522718/chungang-university-hospital_topnaj.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/chungang-university-hospital.png?updatedAt=1774575015290'
   },
   {
     id: 'kaist',
     name: 'KAIST',
     nameKo: 'KAIST',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522720/kaist_znxy67.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/kaist.png?updatedAt=1774575015401'
   },
   {
     id: 'chonnam-university-hospital',
     name: 'Chonnam National University Hospital',
     nameKo: '전남대학교병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522717/chonnam-university-hospital_e0aep7.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/kaist.png?updatedAt=1774575015401'
   },
   {
     id: 'hallym-dongtan',
     name: 'Hallym University Dongtan Sacred Heart Hospital',
     nameKo: '한림대학교동탄성심병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522718/hallym-dongtan_o05ucs.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/hallym-dongtan.png?updatedAt=1774575015500'
   },
   {
     id: 'korean-liver-cancer-assoc',
     name: 'The Korean Liver Cancer Association',
     nameKo: '대한간암학회',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522723/korean-liver-cancer-assoc_tzhple.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/korean-liver-cancer-assoc.png?updatedAt=1774575015486'
   },
   {
     id: 'hanyang-college-medicine',
     name: 'Hanyang University College of Medicine',
     nameKo: '한양대학교 의과대학',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522719/hanyang-college-medicine_yq3jed.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/hanyang-college-medicine.png?updatedAt=1774575015383'
   },
   {
     id: 'snuh',
     name: 'Seoul National University Hospital',
     nameKo: '서울대학교병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522722/snuh_g9qbjj.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/snuh.png?updatedAt=1774575015321'
   },
   {
     id: 'smc',
     name: 'Samsung Medical Center',
     nameKo: '삼성서울병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522721/smc_c7d8ly.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/smc.png?updatedAt=1774575015294'
   },
   {
     id: 'dongguk-university-hospital',
     name: 'Dongguk University Hospital',
     nameKo: '동국대학교병원',
-    logo: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769522716/dongguk-university-hospital_gaujcr.png'
+    logo: 'https://ik.imagekit.io/2cas695rs/Clients/dongguk-university-hospital.png?updatedAt=1774575015330'
   },
 ];
+
+export const clients = rawClients.map((client) => ({
+  ...client,
+  logo: mapClientImageUrl(client.logo)
+}));
 
 export const socials = [
   {

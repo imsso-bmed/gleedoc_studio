@@ -26,6 +26,11 @@ const sections = [
 export default function Header({ lang, setLang }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   const handleMenuItemClick = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -39,9 +44,14 @@ export default function Header({ lang, setLang }) {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 mix-blend-difference text-white pointer-events-none">
-        <div className="text-2xl font-bold tracking-tighter pointer-events-auto cursor-pointer">
-          Gleedoc
-        </div>
+        <button
+          type="button"
+          onClick={handleLogoClick}
+          className="pointer-events-auto cursor-pointer"
+          aria-label="Go to top"
+        >
+          <img src="/logo.jpg" alt="Gleedoc logo" className="h-10 w-auto object-contain" />
+        </button>
         <div className="flex gap-4 pointer-events-auto">
           <button 
             onClick={() => setLang(lang === 'en' ? 'ko' : 'en')}
