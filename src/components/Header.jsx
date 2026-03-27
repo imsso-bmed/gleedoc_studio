@@ -50,7 +50,7 @@ export default function Header({ lang, setLang }) {
           className="pointer-events-auto cursor-pointer"
           aria-label="Go to top"
         >
-          <img src="/logo.jpg" alt="Gleedoc logo" className="h-10 w-auto object-contain" />
+          <span className="text-2xl font-semibold">Gleedoc</span>
         </button>
         <div className="flex gap-4 pointer-events-auto">
           <button 
