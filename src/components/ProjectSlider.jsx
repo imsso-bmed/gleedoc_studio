@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { projects } from './ProjectGrid';
 
 export default function ProjectSlider() {
@@ -12,8 +12,37 @@ export default function ProjectSlider() {
     return arr;
   }
 
-  // 매번 렌더링마다 랜덤하게 섞인 이미지 배열 생성
-  const images = useMemo(() => shuffle(projects.map((p) => p.image)), []);
+  // 프로젝트 메타데이터를 유지한 채 셔플해서 alt 텍스트 혼동을 방지
+  const shuffledProjects = useMemo(
+    () =>
+      shuffle(
+        projects
+          .filter((p) => typeof p?.image === 'string' && p.image.trim())
+          .map((p) => ({ id: p.id, title: p.title, src: p.image }))
+      ),
+    []
+  );
+
+  const marqueeItems = useMemo(
+    () =>
+      Array.from({ length: 4 }, (_, copyIndex) =>
+        shuffledProjects.map((project, itemIndex) => ({
+          ...project,
+          key: `${project.id ?? 'unknown'}-${copyIndex}-${itemIndex}`,
+        }))
+      ).flat(),
+    [shuffledProjects]
+  );
+
+  const [failedKeys, setFailedKeys] = useState(() => new Set());
+
+  const handleImageError = (key) => {
+    setFailedKeys((prev) => {
+      const next = new Set(prev);
+      next.add(key);
+      return next;
+    });
+  };
 
   return (
     <section className="py-12 bg-white overflow-hidden cursor-scale">
@@ -39,23 +68,29 @@ export default function ProjectSlider() {
         <div
           className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max"
         >
-          {[...images, ...images, ...images, ...images].map((src, i) => (
-            <div
-              key={i}
-              className={
-                `relative flex-shrink-0 w-[90vw] h-[90vw] max-w-[400px] max-h-[400px] md:w-[400px] md:h-[400px] overflow-hidden transition-all duration-500 hover:opacity-90 ` +
-                (i % 3 === 0 ? 'rounded-tl-[100px]' : '') +
-                (i % 3 === 1 ? 'rounded-tr-[100px] rounded-bl-[40px]' : '') +
-                (i % 3 === 2 ? 'rounded-[40px]' : '')
-              }
-            >
-              <img
-                src={src}
-                alt={`Project ${i}`}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
-              />
-            </div>
-          ))}
+          {marqueeItems.map((item, i) => {
+            if (failedKeys.has(item.key)) return null;
+
+            return (
+              <div
+                key={item.key}
+                className={
+                  `relative flex-shrink-0 w-[90vw] h-[90vw] max-w-[400px] max-h-[400px] md:w-[400px] md:h-[400px] overflow-hidden transition-all duration-500 hover:opacity-90 ` +
+                  (i % 3 === 0 ? 'rounded-tl-[100px]' : '') +
+                  (i % 3 === 1 ? 'rounded-tr-[100px] rounded-bl-[40px]' : '') +
+                  (i % 3 === 2 ? 'rounded-[40px]' : '')
+                }
+              >
+                <img
+                  src={item.src}
+                  alt={item.title ? `${item.title} (ID: ${item.id})` : `Project ID ${item.id}`}
+                  loading="lazy"
+                  onError={() => handleImageError(item.key)}
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 
